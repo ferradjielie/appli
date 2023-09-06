@@ -1,5 +1,7 @@
 <?php
 
+include('index.php');
+
 // Les superglobales PHP
 // 
 // $_GET = Liée à la méthode HTTP GET, contient tous les paramètres ayant été transmis au serveur par l'intermédiaire de l'URL de la requête (Query String Parameters).
@@ -30,24 +32,47 @@
 
 session_start();
 
-// var_dump($_GET);die;
-if (isset($_POST ['submit'])) {
-        $name = filter_input ( INPUT_POST, "name", FILTER_SANITIZE_SPECIAL_CHARS) ;
-        $price = filter_input (INPUT_POST, "price", FILTER_VALIDATE_FLOAT, FILTER_FLAG_ALLOW_FRACTION);
-        $qtt = filter_input (INPUT_POST , "qtt", FILTER_VALIDATE_INT);
+switch($_GET["action"]) {
+
+    case "ajouterProduit":
+        //  var_dump($_SESSION);die;
+        if (isset($_POST ['submit'])) {
+            $name = filter_input ( INPUT_POST, "name", FILTER_SANITIZE_SPECIAL_CHARS) ;
+            $price = filter_input (INPUT_POST, "price", FILTER_VALIDATE_FLOAT, FILTER_FLAG_ALLOW_FRACTION);
+            $qtt = filter_input (INPUT_POST , "qtt", FILTER_VALIDATE_INT);
+            
+            if ($name && $price && $qtt) {
+
+                $product = [
+                    "name" => $name,
+                    "price" => $price,
+                    "qtt" => $qtt,
+                    "total" => $price*$qtt
+                ];
+                $_SESSION['products'] [] = $product;
+            }
+        }
+
+        header ("Location:index.php");
+        break;
+
+    case "viderPanier" :
+        unset($_SESSION["products"]);
+        header ("Location:recap.php");
+        break;
+
+    case "supprimerProduit" :
         
+    break;
 
-    if ($name && $price && $qtt) {
+    case "augmenterQuantite" :
 
-        $product = [
-            "name" => $name,
-            "price" => $price,
-            "qtt" => $qtt,
-            "total" => $price*$qtt
-        ];
-        $_SESSION['products'] [] = $product;
-    }
+    break;
+    
+    case "baisserQuantite" :
+
+    break;
 }
 
 
-header ("Location:index.php");
+
