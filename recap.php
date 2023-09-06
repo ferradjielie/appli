@@ -48,7 +48,7 @@ session_start();
                         .$product    ['qtt'].    "<a href= > + </a>  ".
                     "</td>",
                     "<td>".number_format($product ['total'], 2, ",","&nbsp;"). "</td>",
-                "<td><a href=''>supprimer</a></td>",
+                "<td><a href='traitement.php?action=supprimerProduit'>supprimer</a></td>",
 
               
                 

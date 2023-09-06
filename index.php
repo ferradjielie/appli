@@ -18,6 +18,7 @@
 </nav>
     <h1>Ajouter un produit </h1>
     <form action="traitement.php?action=ajouterProduit" method="POST"> 
+        
         <p>
             <label> 
                 Nom du produit:

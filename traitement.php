@@ -62,7 +62,8 @@ switch($_GET["action"]) {
         break;
 
     case "supprimerProduit" :
-        
+        unset($_SESSION[$index]);
+
     break;
 
     case "augmenterQuantite" :
