@@ -44,11 +44,11 @@ session_start();
                     "<td>".$index. "</td>",
                     "<td>".$product ['name']. "</td>",
                     "<td>".number_format($product ['price'], 2, ",", "&nbsp;"). "</td>",
-                    "<td>"  ."<a href= > - </a>  "
-                        .$product    ['qtt'].    "<a href= > + </a>  ".
+                    "<td>"  ."<a href='traitement.php?action=baisserQuantite&id=$index' > - </a>  "
+                        .$product    ['qtt'].    "<a href='traitement.php?action=augmenterQuantite&id=$index' > + </a>  ".
                     "</td>",
                     "<td>".number_format($product ['total'], 2, ",","&nbsp;"). "</td>",
-                "<td><a href='traitement.php?action=supprimerProduit'>supprimer</a></td>",
+                "<td><a href='traitement.php?action=supprimerProduit&id=$index'>supprimer</a></td>",
 
               
                 
@@ -68,10 +68,7 @@ session_start();
         </div>";
     }
     
-    $tab = [
-        "France" => "Paris",
-        "Chine" => "Pékin"
-    ];
+    
           
      ?>
 

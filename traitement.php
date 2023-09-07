@@ -62,15 +62,43 @@ switch($_GET["action"]) {
         break;
 
     case "supprimerProduit" :
-        unset($_SESSION[$index]);
+        if (isset($_GET["id"])&& isset($_SESSION["products"][$_GET["id"]])) {
+            $deletedProd = $_SESSION ["products"] [$_GET ["id"]];
+            // supprime le produit de la session
+            unset($_SESSION["products"][$_GET["id"]]);
+            header("Location: recap.php");
+            die();
+        }
+        else $_SESSION["message"]= "Action impossible";
 
     break;
 
     case "augmenterQuantite" :
+        if (isset($_GET["id"])&& isset($_SESSION["products"][$_GET["id"]])) {
+           // $deletedProd = $_SESSION ["products"] [$_GET ["id"]];
+           
+            $_SESSION["products"][$_GET["id"]] ["qtt"]++;
+           
+
+            
+            header("Location: recap.php");
+            die();
+        }
+        
 
     break;
     
     case "baisserQuantite" :
+        if (isset($_GET["id"])&& isset($_SESSION["products"][$_GET["id"]])) {
+            // $deletedProd = $_SESSION ["products"] [$_GET ["id"]];
+            
+             $_SESSION["products"][$_GET["id"]] ["qtt"]--;
+            
+ 
+             
+             header("Location: recap.php");
+             die();
+         }
 
     break;
 }
