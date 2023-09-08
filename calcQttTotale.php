@@ -5,10 +5,7 @@ function calcQttTotale(){
     $totalProduits = 0;
     foreach($_SESSION['products'] as $index => $product ) {
          
-        if (isset($_SESSION['message'])) {
-            echo $_SESSION['message'];
-         
-            unset($_SESSION['message']); }
+        
 
 
             
@@ -22,3 +19,4 @@ function calcQttTotale(){
     }
     return $totalProduits;
 }
+

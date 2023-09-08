@@ -29,6 +29,13 @@ $totalQtt = calcQttTotale();
   </div>
 </nav>
     <h1>Ajouter un produit </h1>
+    <?php
+    if (isset($_SESSION['message'])) {
+            echo $_SESSION['message'];
+         
+            unset($_SESSION['message']); }
+
+            ?>
     <form action="traitement.php?action=ajouterProduit" method="POST">
         
         

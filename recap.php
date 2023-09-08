@@ -1,6 +1,12 @@
 <?php
 session_start();
 include('calcQttTotale.php');
+if (isset($_SESSION['message'])) {
+    echo $_SESSION['message'];
+ 
+    unset($_SESSION['message']); }
+
+    
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -51,7 +57,7 @@ include('calcQttTotale.php');
                         .$product    ['qtt'].    "<a href='traitement.php?action=augmenterQuantite&id=$index' > + </a>  ".
                     "</td>",
                     "<td>".number_format($total, 2, ",","&nbsp;"). "</td>",
-                "<td><a href='traitement.php?action=supprimerProduit&id=$index'>supprimer</a></td>  ". $_SESSION['message'] =  "Le produit   a été supprimer du panier";
+                "<td><a href='traitement.php?action=supprimerProduit&id=$index'>supprimer</a></td>  ", 
 
               
                 
