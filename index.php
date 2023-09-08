@@ -1,3 +1,9 @@
+<?php
+session_start();
+include('calcQttTotale.php');
+$totalQtt = calcQttTotale();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,7 +18,7 @@
 <nav class="navbar navbar-expand-lg bg-light">
   <div class="container-fluid">
    
-    <a class="navbar-link" href="recap.php">recap</a>
+    <a class="navbar-link" href="recap.php">recap (<?= $totalQtt  ?>)</a>
    
   </div>
 </nav>
@@ -36,8 +42,16 @@
 
         <p>
             <label> 
-                Quentité désirée :
+                Quantité désirée :
                 <input type="number" name="qtt" value="1"  >
+            </label>
+        </p>
+
+        <p>
+            <label> 
+                Quantité total :
+                <input type="number" name="qtt" value="1" 
+                >
             </label>
         </p>
 

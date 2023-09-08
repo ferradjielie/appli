@@ -44,6 +44,7 @@ switch($_GET["action"]) {
             if ($name && $price && $qtt) {
 
                 $product = [
+
                     "name" => $name,
                     "price" => $price,
                     "qtt" => $qtt,

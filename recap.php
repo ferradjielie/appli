@@ -1,6 +1,6 @@
 <?php
-
 session_start();
+include('calcQttTotale.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -41,6 +41,7 @@ session_start();
         $totalProduits = 0;
         
         foreach($_SESSION['products'] as $index => $product ) {
+            $totalQtt = $totalProduits + $product["qtt"];
             $total = $product["price"]*$product["qtt"]  ;          
                    echo "<tr>",
                     "<td>".$index. "</td>",
@@ -56,12 +57,15 @@ session_start();
                 
                 "</tr>";
             $totalGeneral += $total;
+            $totalProduits += $product["qtt"];
+            
 
         }
         
         echo "<tr>",
         "<td colspan=4 Total général : </td>",
         "<td> <strong>".number_format ($totalGeneral, 2, ",", "&nbsp;")."&nbsp;€</strong> </td>",
+        "<td> <strong>".number_format ($totalQtt, 0, ",", "&nbsp;")."&nbsp;</strong> </td>",
         "</tr>";
         echo "</tbody>",
                  "</table>
