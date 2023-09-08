@@ -1,7 +1,13 @@
 <?php
 session_start();
+
 include('calcQttTotale.php');
 $totalQtt = calcQttTotale();
+
+
+
+
+
 ?>
 
 <!DOCTYPE html>
@@ -23,7 +29,8 @@ $totalQtt = calcQttTotale();
   </div>
 </nav>
     <h1>Ajouter un produit </h1>
-    <form action="traitement.php?action=ajouterProduit" method="POST"> 
+    <form action="traitement.php?action=ajouterProduit" method="POST">
+        
         
         <p>
             <label> 
@@ -48,12 +55,7 @@ $totalQtt = calcQttTotale();
         </p>
 
         <p>
-            <label> 
-                Quantité total :
-                <input type="number" name="qtt" value="1" 
-                >
-            </label>
-        </p>
+       
 
         <p>
         <input type="submit" name="submit" value="Ajouter le produit"  >

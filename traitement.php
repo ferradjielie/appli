@@ -51,14 +51,24 @@ switch($_GET["action"]) {
                     "total" => $price*$qtt
                 ];
                 $_SESSION['products'] [] = $product;
+                $_SESSION['message'] =  "Le produit ". $name . " a été ajouté au panier";
+               
+                
+                
+             
             }
+            else  $_SESSION['message'] = "Le produit". $name. " n'a pas été ajouté";
+
         }
+      
 
         header ("Location:index.php");
         break;
 
     case "viderPanier" :
         unset($_SESSION["products"]);
+
+        //$_SESSION['message'] =  "Le panier a été supprimé";
         header ("Location:recap.php");
         break;
 
@@ -67,6 +77,7 @@ switch($_GET["action"]) {
             $deletedProd = $_SESSION ["products"] [$_GET ["id"]];
             // supprime le produit de la session
             unset($_SESSION["products"][$_GET["id"]]);
+            $_SESSION['message'] =  "Le produit ". $name . " a été supprimer du panier";
             header("Location: recap.php");
             die();
         }
@@ -106,3 +117,4 @@ switch($_GET["action"]) {
 
 
 
+//$_SESSION['message'] =  Le produit . $name . " a été supprimer du panier

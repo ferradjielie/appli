@@ -51,7 +51,7 @@ include('calcQttTotale.php');
                         .$product    ['qtt'].    "<a href='traitement.php?action=augmenterQuantite&id=$index' > + </a>  ".
                     "</td>",
                     "<td>".number_format($total, 2, ",","&nbsp;"). "</td>",
-                "<td><a href='traitement.php?action=supprimerProduit&id=$index'>supprimer</a></td>",
+                "<td><a href='traitement.php?action=supprimerProduit&id=$index'>supprimer</a></td>  ". $_SESSION['message'] =  "Le produit   a été supprimer du panier";
 
               
                 
