@@ -67,6 +67,7 @@ switch($_GET["action"]) {
 
     case "viderPanier" :
         unset($_SESSION["products"]);
+        $_SESSION['message'] =  "Le panier est vide";
 
         //$_SESSION['message'] =  "Le panier a été supprimé";
         header ("Location:recap.php");
