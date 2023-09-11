@@ -3,6 +3,11 @@
 
 function calcQttTotale(){
     $totalProduits = 0;
+    
+    if (isset($_GET["id"])&& isset($_SESSION["products"][$_GET["id"]])) {
+        return 0;
+    } 
+    
     foreach($_SESSION['products'] as $index => $product ) {
          
         
